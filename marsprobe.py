@@ -30,7 +30,6 @@ async def main(host,token):
         r = str(random.randrange(1000))
         id = create_identifier(r)
         id_format = '{:0>4}'.format(str(id))
-        #print(glb.mem)
         req = id_format + str(r)
         client.publish(target,req,qos=0)
 

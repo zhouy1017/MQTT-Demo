@@ -1,9 +1,14 @@
 MarsProbe Demo
 
 Marsprobe.py simulates the clients of a bidirectional communication system based on MQTT/EMQX.  It sends a random number in range 0-1000 for 10 times and expects responses in one of marks of A, B, C.  Then the client will print the number-mark in correct pair.
+
 Robot_comm is the standalone package to support the MQTT communication.  It could be easily integrated into other kinds of service.
+
 Emqx.py is the simulation of the backend of the server, acts as the Sysclient.
+
 A running emqx broker instance is required in this demo.
+
+This demo aims at building a framework that support MQTT communication between multiple clients and a 'server' (SysClient is not an acutal MQTT server, it's a super client of the network and could provide expandable management backend functions.)  The MQTT messaging functions are placed in stand-alone package so just need to design new message protocol to support new services.
 
 Note:
 The demo assumes that the network connection is in premium which means the top priority is to minimize the usage of bandwidth.  Thus some implementations consume more local resources to save bandwidth.

@@ -25,9 +25,7 @@ def on_connect(client, flags, rc, properties):
 
 
 def on_message(client, topic, payload, qos, properties):
-    #print('RECV MSG:', topic)
     request_handler(client,topic,payload)
-        ###print(res)
 
 def request_handler(client,topic,payload):
 
@@ -94,7 +92,7 @@ async def main(broker_host, token):
     client.set_auth_credentials(token, None)
     await client.connect(broker_host)
 
-    #client.publish('TEST/TIME', str(time.time()), qos=1)
+    # Watchdog print out online_clients every 5s
     t = threading.Thread(target = watchdog_clients)
     t.setDaemon(True)
     t.start()
